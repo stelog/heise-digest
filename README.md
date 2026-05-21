@@ -80,4 +80,4 @@ Change it to your local timezone if needed – full list at
 
 \---
 
-Erstellt mit Claude
+Created with Claude
