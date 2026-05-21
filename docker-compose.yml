@@ -1,0 +1,22 @@
+services:
+  heise-digest:
+    build: .
+    container_name: heise-digest
+    restart: unless-stopped
+
+    environment:
+      # ── Required ──────────────────────────────────────────────────
+      TELEGRAM_BOT_TOKEN: "${TELEGRAM_BOT_TOKEN}"
+      TELEGRAM_CHAT_ID:   "${TELEGRAM_CHAT_ID}"
+
+      # ── Optional – set to your local timezone ─────────────────────
+      # The cron job runs at 05:00 in this timezone.
+      # Full list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      TZ: "Europe/Berlin"
+
+    # Stream cron log to docker logs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

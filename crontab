@@ -1,0 +1,3 @@
+# Heise Newsticker – daily digest at 05:00
+# Environment variables are injected by entrypoint.sh
+0 5 * * * root . /etc/environment && /usr/local/bin/python /app/heise_telegram_digest.py >> /var/log/heise-digest.log 2>&1
